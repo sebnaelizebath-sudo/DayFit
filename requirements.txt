@@ -24,3 +24,6 @@ Werkzeug
 Jinja2
 itsdangerous
 click
+
+bcrypt
+Flask-Bcrypt
