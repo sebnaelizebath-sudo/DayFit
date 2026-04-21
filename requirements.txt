@@ -19,6 +19,8 @@ pillow
 
 python-dotenv
 
+psycopg2-binary
+
 Jinja2
 Werkzeug
 MarkupSafe
