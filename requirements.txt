@@ -4,6 +4,7 @@ gunicorn
 flask-cors
 Flask-Login
 Flask-WTF
+Flask-SQLAlchemy
 
 google-auth
 google-auth-oauthlib
