@@ -10,9 +10,6 @@ google-auth-oauthlib
 Authlib
 
 requests
-urllib3
-idna
-certifi
 
 numpy
 opencv-python
