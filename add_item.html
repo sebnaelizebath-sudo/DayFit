@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item - DayFit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #0b1120;
+            color: #fff;
+        }
+
+        .box {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 40px;
+            background: rgba(255, 255, 255, .05);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .form-control,
+        .form-select {
+            background: #111827;
+            color: #fff;
+            border: 1px solid #374151;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            background: #111827;
+            color: #fff;
+            border-color: #6366f1;
+            box-shadow: none;
+        }
+
+        option {
+            background: #111827;
+            color: #fff;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box">
+            <h2 class="mb-4">Add New Item</h2>
+            <form method="POST" enctype="multipart/form-data">
+
+                <!-- Item Name -->
+                <input name="name" class="form-control mb-3" placeholder="Item Name (e.g., White Cotton Kurta)"
+                    required>
+
+                <!-- Category Dropdown (Expanded) -->
+                <div class="mb-3">
+                    <label class="form-label">Category *</label>
+                    <select name="category" class="form-select" required>
+                        <option value="">-- Select Category --</option>
+
+                        <optgroup label="👕 Western Tops">
+                            <option>Shirt</option>
+                            <option>T-Shirt</option>
+                            <option>Polo Shirt</option>
+                            <option>Top</option>
+                            <option>Blouse</option>
+                            <option>Crop Top</option>
+                            <option>Tank Top</option>
+                            <option>Hoodie</option>
+                            <option>Sweater</option>
+                            <option>Cardigan</option>
+                            <option>Jacket</option>
+                            <option>Blazer</option>
+                            <option>Coat</option>
+                        </optgroup>
+
+                        <optgroup label="👖 Western Bottoms">
+                            <option>Jeans</option>
+                            <option>Trousers</option>
+                            <option>Pants</option>
+                            <option>Chinos</option>
+                            <option>Shorts</option>
+                            <option>Skirt</option>
+                            <option>Leggings</option>
+                            <option>Joggers</option>
+                            <option>Cargo Pants</option>
+                        </optgroup>
+
+                        <optgroup label="🇮🇳 Indian Wear (Single)">
+                            <option>Kurta</option>
+                            <option>Kurti</option>
+                            <option>Sherwani</option>
+                            <option>Lehenga</option>
+                            <option>Saree</option>
+                            <option>Salwar Kameez</option>
+                            <option>Anarkali</option>
+                            <option>Palazzo</option>
+                            <option>Dhoti</option>
+                            <option>Indo-Western</option>
+                            <option>Bandhgala</option>
+                            <option>Nehru Jacket</option>
+                            <option>Dupatta</option>
+                        </optgroup>
+
+                        <optgroup label="🇮🇳 Indian Sets (Multi‑piece)">
+                            <option>Kurta Set (Kurta + Pant)</option>
+                            <option>Kurta Set (Kurta + Pant + Dupatta)</option>
+                            <option>Lehenga Set (Lehenga + Blouse + Dupatta)</option>
+                            <option>Sherwani Set (Sherwani + Churidar + Dupatta)</option>
+                            <option>Salwar Set (Salwar + Kameez + Dupatta)</option>
+                            <option>Indo-Western Set</option>
+                            <option>Set (2‑piece)</option>
+                            <option>Set (3‑piece)</option>
+                        </optgroup>
+
+                        <optgroup label="👟 Footwear">
+                            <option>Sneakers</option>
+                            <option>Casual Shoes</option>
+                            <option>Formal Shoes</option>
+                            <option>Loafers</option>
+                            <option>Boots</option>
+                            <option>Sandals</option>
+                            <option>Heels</option>
+                            <option>Flats</option>
+                            <option>Sports Shoes</option>
+                            <option>Juttis</option>
+                            <option>Mojari</option>
+                            <option>Kolhapuri</option>
+                        </optgroup>
+
+                        <optgroup label="💍 Accessories">
+                            <option>Watch</option>
+                            <option>Belt</option>
+                            <option>Bag</option>
+                            <option>Cap</option>
+                            <option>Hat</option>
+                            <option>Sunglasses</option>
+                            <option>Scarf</option>
+                            <option>Jewellery (Necklace)</option>
+                            <option>Jewellery (Earrings)</option>
+                            <option>Jewellery (Bracelet)</option>
+                            <option>Jewellery (Ring)</option>
+                            <option>Tie</option>
+                            <option>Pocket Square</option>
+                            <option>Wallet</option>
+                        </optgroup>
+
+                        <optgroup label="👗 One‑Piece">
+                            <option>Dress</option>
+                            <option>Gown</option>
+                            <option>Jumpsuit</option>
+                            <option>Romper</option>
+                            <option>Maxi Dress</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Color -->
+                <input name="color" class="form-control mb-3" placeholder="Color (e.g., White, Navy, Maroon)" required>
+
+                <!-- Material Dropdown (Expanded) -->
+                <div class="mb-3">
+                    <label class="form-label">Material</label>
+                    <select name="material" class="form-select">
+                        <option value="">-- Select Material --</option>
+                        <optgroup label="🧵 Natural Fabrics">
+                            <option>Cotton</option>
+                            <option>Organic Cotton</option>
+                            <option>Linen</option>
+                            <option>Silk</option>
+                            <option>Wool</option>
+                            <option>Cashmere</option>
+                            <option>Hemp</option>
+                            <option>Jute</option>
+                            <option>Bamboo Fiber</option>
+                            <option>Khadi</option>
+                        </optgroup>
+                        <optgroup label="🔧 Synthetic & Blends">
+                            <option>Polyester</option>
+                            <option>Rayon</option>
+                            <option>Nylon</option>
+                            <option>Spandex / Elastane</option>
+                            <option>Viscose</option>
+                            <option>Acrylic</option>
+                            <option>Modal</option>
+                            <option>Tencel</option>
+                            <option>Lycra</option>
+                            <option>Neoprene</option>
+                        </optgroup>
+                        <optgroup label="👗 Traditional Indian Fabrics">
+                            <option>Chiffon</option>
+                            <option>Georgette</option>
+                            <option>Crepe</option>
+                            <option>Satin</option>
+                            <option>Velvet</option>
+                            <option>Brocade</option>
+                            <option>Banarasi Silk</option>
+                            <option>Kanjeevaram Silk</option>
+                            <option>Patola Silk</option>
+                            <option>Ikat</option>
+                            <option>Bandhani</option>
+                            <option>Leheriya</option>
+                            <option>Phulkari</option>
+                            <option>Chanderi</option>
+                            <option>Maheshwari</option>
+                            <option>Muga Silk</option>
+                            <option>Tussar Silk</option>
+                        </optgroup>
+                        <optgroup label="👖 Denim & Leather">
+                            <option>Denim</option>
+                            <option>Leather</option>
+                            <option>Faux Leather</option>
+                            <option>Suede</option>
+                            <option>Canvas</option>
+                            <option>Corduroy</option>
+                            <option>Flannel</option>
+                            <option>Tweed</option>
+                        </optgroup>
+                        <optgroup label="🧣 Accessory Materials">
+                            <option>Metal (Gold/Silver/Steel)</option>
+                            <option>Plastic</option>
+                            <option>Resin</option>
+                            <option>Wood</option>
+                            <option>Glass</option>
+                            <option>Gemstone</option>
+                            <option>Pearl</option>
+                            <option>Ceramic</option>
+                            <option>Rubber</option>
+                            <option>Silicone</option>
+                            <option>Fabric (Canvas/Nylon)</option>
+                        </optgroup>
+                        <optgroup label="👟 Footwear Materials">
+                            <option>Rubber</option>
+                            <option>EVA</option>
+                            <option>PU</option>
+                            <option>Mesh</option>
+                            <option>Knit</option>
+                            <option>Cork</option>
+                            <option>Jute (for espadrilles)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Pattern Dropdown (Expanded) -->
+                <div class="mb-3">
+                    <label class="form-label">Pattern / Design</label>
+                    <select name="pattern" class="form-select">
+                        <option value="">-- Select Pattern --</option>
+                        <optgroup label="🎨 Basic Patterns">
+                            <option>Solid / Plain</option>
+                            <option>Striped</option>
+                            <option>Checked</option>
+                            <option>Plaid</option>
+                            <option>Polka Dot</option>
+                            <option>Geometric</option>
+                            <option>Abstract</option>
+                            <option>Ombre / Gradient</option>
+                        </optgroup>
+                        <optgroup label="🌸 Floral & Nature">
+                            <option>Floral</option>
+                            <option>Botanical Print</option>
+                            <option>Leaf Print</option>
+                            <option>Paisley</option>
+                            <option>Mandala</option>
+                        </optgroup>
+                        <optgroup label="🇮🇳 Traditional Indian Patterns">
+                            <option>Bandhani (Tie-Dye)</option>
+                            <option>Leheriya</option>
+                            <option>Ikat</option>
+                            <option>Patola</option>
+                            <option>Kalamkari</option>
+                            <option>Ajrakh</option>
+                            <option>Bagh Print</option>
+                            <option>Dabu Print</option>
+                            <option>Sanganeri Print</option>
+                            <option>Bagru Print</option>
+                            <option>Phulkari</option>
+                            <option>Chikankari (Embroidery)</option>
+                            <option>Zari Work</option>
+                            <option>Zardosi</option>
+                            <option>Mirror Work</option>
+                            <option>Gota Patti</option>
+                            <option>Sequin Work</option>
+                            <option>Stone Work</option>
+                            <option>Beaded</option>
+                        </optgroup>
+                        <optgroup label="🖼️ Graphic & Modern">
+                            <option>Graphic Print</option>
+                            <option>Logo Print</option>
+                            <option>Typography</option>
+                            <option>Cartoon / Character</option>
+                            <option>Tie Dye</option>
+                            <option>Camouflage</option>
+                            <option>Animal Print</option>
+                            <option>Chevron</option>
+                            <option>Herringbone</option>
+                            <option>Argyle</option>
+                        </optgroup>
+                        <optgroup label="✨ Textured & Embellished">
+                            <option>Textured</option>
+                            <option>Ribbed</option>
+                            <option>Quilted</option>
+                            <option>Embroidered</option>
+                            <option>Lace</option>
+                            <option>Net / Sheer</option>
+                            <option>Frayed / Distressed</option>
+                            <option>Washed / Faded</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Set Components (for multi‑piece items) -->
+                <div class="mb-3">
+                    <label class="form-label">Set Components (optional)</label>
+                    <input type="text" name="set_components" class="form-control"
+                        placeholder="e.g., Kurta, Pant, Dupatta | Lehenga, Blouse, Dupatta">
+                    <small class="text-muted">Separate component names with commas. Leave empty for single
+                        items.</small>
+                </div>
+
+                <!-- Image Upload -->
+                <input type="file" name="image" class="form-control mb-4" accept="image/*">
+
+                <button class="btn btn-primary w-100">➕ Add Item</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

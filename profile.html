@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - DayFit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #0b1120;
+            color: white;
+        }
+
+        .navbar {
+            background: #111827;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .card-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background: #111827;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .badge-box {
+            background: #1f2937;
+            padding: 8px 12px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url_for('dashboard.dashboard') }}">DayFit</a>
+            <div>
+                <a href="{{ url_for('dashboard.dashboard') }}" class="text-white me-3">Dashboard</a>
+                <a href="{{ url_for('favorites.favorites') }}" class="text-white me-3">Favorites</a>
+                <a href="{{ url_for('auth.logout') }}" class="text-danger">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <div class="hero mb-4">
+            <h2 class="fw-bold">{{ user.name }}</h2>
+            <p>Your style profile and wardrobe analytics dashboard</p>
+        </div>
+
+        <!-- STAT CARDS -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="card-box text-center">
+                    <h6>Wardrobe Items</h6>
+                    <h2>{{ total_items }}</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-box text-center">
+                    <h6>Favorite Outfits</h6>
+                    <h2>{{ favorites }}</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-box text-center">
+                    <h6>Saved Outfits</h6>
+                    <h2>{{ saved }}</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-box text-center">
+                    <h6>Most Used Item</h6>
+                    <h5>{{ most_used_item }}</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLOR BADGES (Detailed) -->
+        <div class="card-box">
+            <h4 class="mb-3">Color Distribution</h4>
+            {% if color_stats %}
+            {% for color, count in color_stats %}
+            <div class="badge-box">{{ color or "Unknown" }} : {{ count }}</div>
+            {% endfor %}
+            {% else %}
+            <p>No color data available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Optional: Season & Occasion text summaries (if you want) -->
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <div class="card-box">
+                    <h5>Seasons</h5>
+                    {% if season_stats %}
+                    <ul>
+                        {% for season, count in season_stats %}
+                        <li>{{ season or "Unknown" }}: {{ count }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No season data</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-box">
+                    <h5>Occasions</h5>
+                    {% if occasion_stats %}
+                    <ul>
+                        {% for occasion, count in occasion_stats %}
+                        <li>{{ occasion or "Unknown" }}: {{ count }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No occasion data</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer text-center">
+        <h6>DayFit</h6>
+        <p>Profile & Analytics</p>
+    </div>
+</body>
+
+</html>
