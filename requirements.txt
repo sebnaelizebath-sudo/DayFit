@@ -5,6 +5,7 @@ flask-cors
 Flask-Login
 Flask-WTF
 Flask-SQLAlchemy
+SQLAlchemy
 
 google-auth
 google-auth-oauthlib
